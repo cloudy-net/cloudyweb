@@ -5,11 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCloudy(cloudy => cloudy
   .AddAdmin(admin => admin.Unprotect())   // NOTE: Admin UI will be publicly available!
-  .AddContext<CloudyWeb>()                // Adds EF Core context with your content types
+  .AddContext<Context>()                // Adds EF Core context with your content types
 );
 
-builder.Services.AddDbContext<CloudyWeb>(options => options
-  .UseCosmos(builder.Configuration["CosmosConnectionString"] ?? throw new Exception("CosmosEndpoint needed"), builder.Configuration["CosmosDatabase"] ?? throw new Exception("CosmosDatabase needed"))      // Adjust according to your needs.
+builder.Services.AddDbContext<Context>(options => options
+  .UseCosmos(builder.Configuration["CosmosConnectionString"] ?? throw new Exception("CosmosEndpoint needed"), builder.Configuration["CosmosDatabase"] ?? throw new Exception("CosmosDatabase needed"))
 );
 
 var app = builder.Build();
