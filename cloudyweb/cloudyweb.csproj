@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cloudy.CMS" Version="1.62.66" />
-    <PackageReference Include="Cloudy.CMS.UI" Version="1.62.66" />
+    <PackageReference Include="Cloudy.CMS" Version="1.62.67" />
+    <PackageReference Include="Cloudy.CMS.UI" Version="1.62.67" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="7.0.0" />
     <PackageReference Include="Microsoft.Identity.Web" Version="1.25.10" />
