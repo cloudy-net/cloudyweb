@@ -1,0 +1,86 @@
+﻿/* VARIABLES */
+
+:root {
+    --bs-body-color: white;
+    --bs-body-bg: #215b7d;
+    --bs-link-color: white;
+    --bs-link-hover-color: rgba(255, 255, 255, 0.7);
+    --bs-code-color: rgba(255, 255, 255, 0.7);
+}
+
+/*$screen-xs: 320px;
+$screen-tn: 576px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+$screen-hg: 1400px;
+*/
+
+/* GLOBAL ELEMENTS */
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+iframe {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+}
+
+
+
+/* CONTENT */
+
+hero-cloud {
+    margin: 3rem 0 1rem;
+    display: block;
+    font-size: 35vw;
+    font-family: sans-serif;
+    line-height: 0.5;
+    text-align: center;
+    text-shadow: 1px 1px 0 black;
+}
+
+@media(min-width: 768px) {
+    hero-cloud {
+        margin-top: 5rem;
+        font-size: 200px;
+    }
+}
+
+h1,
+h2,
+h3 {
+    text-shadow: 1px 1px 0 black;
+}
+
+
+
+/* IMAGES */
+
+.image {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+
+
+/* FOOTER */
+
+.site-footer {
+    margin-top: auto;
+    background: #252525;
+}
+
+.legalese {
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.legalese p {
+    margin: 0 0 0.5rem;
+}

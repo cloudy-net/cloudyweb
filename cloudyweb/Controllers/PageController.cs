@@ -10,25 +10,19 @@ namespace cloudyweb.Controllers
         [Route("/{page:contentroute}")]
         public IActionResult Index([FromContentRoute] Page page)
         {
-            return Content($"Page controller {page?.Name}");
+            return View(page);
         }
+
         public async Task<IActionResult> StartPage([FromServices] ISingletonGetter singletonGetter, [FromServices] Context context)
         {
-            var siteSettings = await singletonGetter.Get<SiteSettings>();
+            var startPage = await singletonGetter.Get<StartPage>();
 
-            if(siteSettings == null)
+            if(startPage == null)
             {
                 return NotFound();
             }
 
-            if(siteSettings.StartPage == null)
-            {
-                return NotFound();
-            }
-
-            var page = await context.FindAsync<Page>(siteSettings.StartPage);
-
-            return Content($"Page controller {page?.Name}");
+            return View("Start", startPage);
         }
     }
 }

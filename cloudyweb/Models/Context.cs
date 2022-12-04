@@ -12,11 +12,13 @@ namespace cloudyweb.Models
 
             modelBuilder.Entity<Page>().HasPartitionKey(o => o.Id);
             modelBuilder.Entity<SiteSettings>().HasPartitionKey(o => o.Id);
+            modelBuilder.Entity<StartPage>().HasPartitionKey(o => o.Id);
 
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Page> Pages { get; set; }
         public DbSet<SiteSettings> SiteSettings { get; set; }
+        public DbSet<StartPage> StartPage { get; set; }
     }
 }

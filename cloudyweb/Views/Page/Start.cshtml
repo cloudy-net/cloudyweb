@@ -1,0 +1,19 @@
+﻿@using cloudyweb.Models;
+@model StartPage
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container" style="max-width: 720px;">
+    <hero-cloud>☁</hero-cloud>
+    <h1 class="text-center mb-4">@Model.Headline</h1>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/pbCaz1tnSEs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <p class="my-5 text-center fs-5">
+        @Model.MainIntro
+    </p>
+
+    @Html.Raw(Model.MainBody)
+</div>
