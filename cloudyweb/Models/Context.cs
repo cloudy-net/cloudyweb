@@ -9,11 +9,14 @@ namespace cloudyweb.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultContainer("CloudyWeb");
+
             modelBuilder.Entity<Page>().HasPartitionKey(o => o.Id);
+            modelBuilder.Entity<SiteSettings>().HasPartitionKey(o => o.Id);
 
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Page> Pages { get; set; }
+        public DbSet<SiteSettings> SiteSettings { get; set; }
     }
 }

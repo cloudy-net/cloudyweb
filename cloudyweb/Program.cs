@@ -26,6 +26,6 @@ app.UseStaticFiles(new StaticFileOptions().MustValidate());
 
 app.MapRazorPages();
 app.MapControllers();
-app.MapGet("/", () => "Hello World!");
+app.MapControllerRoute("startpage", "/", new { controller = "Page", action = "StartPage" });
 
 app.Run();
