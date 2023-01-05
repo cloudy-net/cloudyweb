@@ -13,7 +13,7 @@ builder.Services.AddCloudy(cloudy => cloudy
 
 builder.Services.AddDbContext<Context>(options => options
   .UseCosmos(
-    builder.Configuration.GetConnectionString("CosmosConnectionString") ?? throw new Exception("CosmosEndpoint needed"),
+    builder.Configuration.GetConnectionString("CosmosConnectionString") ?? throw new Exception("CosmosConnectionString needed"),
     builder.Configuration["CosmosDatabase"] ?? throw new Exception("CosmosDatabase needed"))
 );
 
