@@ -12,7 +12,9 @@ builder.Services.AddCloudy(cloudy => cloudy
 );
 
 builder.Services.AddDbContext<Context>(options => options
-  .UseCosmos(builder.Configuration["CosmosConnectionString"] ?? throw new Exception("CosmosEndpoint needed"), builder.Configuration["CosmosDatabase"] ?? throw new Exception("CosmosDatabase needed"))
+  .UseCosmos(
+    builder.Configuration.GetConnectionString("CosmosConnectionString") ?? throw new Exception("CosmosEndpoint needed"),
+    builder.Configuration["CosmosDatabase"] ?? throw new Exception("CosmosDatabase needed"))
 );
 
 builder.Services.Configure<AuthorizationOptions>(o => o.AddPolicy("adminarea", builder => builder.RequireAuthenticatedUser()));

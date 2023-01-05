@@ -1,14 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace cloudyweb.Models
 {
     public class Context : DbContext
     {
-        public Context(DbContextOptions<Context> dbContextOptions) : base(dbContextOptions) { }
+        private readonly IConfiguration configuration;
+
+        public Context(DbContextOptions<Context> dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
+        {
+            this.configuration = configuration;
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultContainer("CloudyWeb");
+            modelBuilder.HasDefaultContainer(configuration["CosmosContainer"] ?? throw new Exception("CosmosContainer needed"));
 
             modelBuilder.Entity<Page>().HasPartitionKey(o => o.Id);
             modelBuilder.Entity<SiteSettings>().HasPartitionKey(o => o.Id);
